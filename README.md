@@ -4,6 +4,7 @@
   - [Configuration](#configuration)
   - [Musthave](#musthave)
   - [Post-Install](#post-install)
+  - [Tools](#tools)
 
 ## Configuration
 
@@ -33,9 +34,16 @@
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
 | [SMCProcessor](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
 | [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#graphics) | v1.4.6 (NEED to edit section DeviceProperties)
+| [AppleALC](https://github.com/acidanthera/AppleALC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#audio) | v1.5.6 (NEED to edit section DeviceProperties `ALC256 layout-id 69 for Xiaomi Pro Enhanced 2019`)
 
 ## Post-Install
 
 | Action | Deps | Type | Details
 | --- | --- | --- | ---
 | [Battery Patching](https://dortania.github.io/OpenCore-Post-Install/laptop-specific/battery.html) | [SMCBatteryManager](https://github.com/acidanthera/VirtualSMC) | Kext | v1.1.9
+
+## Tools
+
+- [ProperTree](https://github.com/corpnewt/ProperTree) - Universal plist editor
+- [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) - For generating our SMBIOS data
