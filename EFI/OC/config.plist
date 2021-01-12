@@ -5,7 +5,16 @@
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Force enable legacy RTC on Intel 300-series</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-AWAC.aml</string>
+			</dict>
+		</array>
 		<key>Delete</key>
 		<array>
 			<dict>
