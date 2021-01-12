@@ -1,8 +1,9 @@
-# mi-bigsur
+# Mi-BigSur
 
-- [mi-bigsur](#mi-bigsur)
+- [Mi-BigSur](#mi-bigsur)
   - [Configuration](#configuration)
-  - [musthave](#musthave)
+  - [Musthave](#musthave)
+  - [Post-Install](#post-install)
 
 ## Configuration
 
@@ -23,9 +24,18 @@
 | Webcam | Chicony Electronics Co., Ltd XiaoMi USB 2.0 Webcam
 | Fingerprint | ELAN
 
-## musthave
+## Musthave
 
 | Name | Type | Details
 | --- | --- | ---
 | [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi) | [Driver](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers) | *Latest commit 192ed42 on Mar 1, 2020*
 | [Lilu](https://github.com/acidanthera/Lilu) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.5.0
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
+| [SMCProcessor](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
+| [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
+
+## Post-Install
+
+| Action | Deps | Type | Details
+| --- | --- | --- | ---
+| [Battery Patching](https://dortania.github.io/OpenCore-Post-Install/laptop-specific/battery.html) | [SMCBatteryManager](https://github.com/acidanthera/VirtualSMC) | Kext | v1.1.9
