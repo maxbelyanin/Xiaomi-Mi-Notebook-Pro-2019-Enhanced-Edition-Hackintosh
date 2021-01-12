@@ -5,6 +5,7 @@
   - [Musthave](#musthave)
   - [Post-Install](#post-install)
   - [Tools](#tools)
+  - [config.plist](#configplist)
 
 ## Configuration
 
@@ -59,3 +60,23 @@
 
 - [ProperTree](https://github.com/corpnewt/ProperTree) - Universal plist editor
 - [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) - For generating our SMBIOS data
+
+## config.plist
+
+Booter -> Quirks:
+
+- EnableSafeModeSlide `true`???
+- DevirtualiseMmio `true`???
+- ProtectUefiServices `true`???
+- SetupVirtualMap `false`???
+
+Kernel -> Quirks:
+
+- CustomSMBIOSGuid `false`???
+- DisableRtcChecksum `false`???
+
+Kernel -> Scheme:
+
+- FuzzyMatch `true`???
+
+
