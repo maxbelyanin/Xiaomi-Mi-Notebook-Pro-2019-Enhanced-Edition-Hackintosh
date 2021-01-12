@@ -3,6 +3,8 @@
 - [Mi-BigSur](#mi-bigsur)
   - [Configuration](#configuration)
   - [Musthave](#musthave)
+  - [Fixes](#fixes)
+  - [Trackpad](#trackpad)
   - [Post-Install](#post-install)
   - [Tools](#tools)
   - [config.plist](#configplist)
@@ -51,6 +53,10 @@
 | [VoodooInput](https://github.com/VoodooI2C/VoodooI2C) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.6.3 (plugin for VoodooI2C)
 | [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.2.0 (from VoodooPS2 bundle)
 | [VoodooPS2Keyboard](https://github.com/acidanthera/VoodooPS2) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.2.0 (plugin for VoodooPS2Controller from VoodooPS2 bundle)
+
+## Fixes
+
+## Trackpad
 
 ## Post-Install
 

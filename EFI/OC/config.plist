@@ -14,6 +14,14 @@
 				<key>Path</key>
 				<string>SSDT-AWAC.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable trackpad interrupt mode, pair with VoodooI2C.kext and VoodooI2CHID.kext</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TPD0.aml</string>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array/>
