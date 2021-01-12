@@ -16,11 +16,27 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Disable discrete graphics card</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-DDGPU.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Enable trackpad interrupt mode, pair with VoodooI2C.kext and VoodooI2CHID.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
 				<string>SSDT-TPD0.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Add PNLF device for brightness support, pair with WhateverGreen.kext</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PNLFCFL.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -869,7 +885,7 @@
 			<key>ScanPolicy</key>
 			<integer>17760515</integer>
 			<key>SecureBootModel</key>
-			<string>Default</string>
+			<string>Disabled</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
