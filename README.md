@@ -79,4 +79,14 @@ Kernel -> Scheme:
 
 - FuzzyMatch `true`???
 
+Misc -> Debug:
 
+- AppleDebug `false`???
+- ApplePanic `false`???
+- DisableWatchDog `false`???
+- Target `0`???
+
+Misc -> Security:
+
+- AuthRestart `false`???
+- SecureBootModel `disabled`???
