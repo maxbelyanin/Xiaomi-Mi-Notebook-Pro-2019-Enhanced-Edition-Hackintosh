@@ -32,10 +32,13 @@
 | [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi) | [Driver](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers) | *Latest commit 192ed42 on Mar 1, 2020*
 | [Lilu](https://github.com/acidanthera/Lilu) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.5.0
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
-| [SMCProcessor](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
-| [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9
+| [SMCProcessor](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9 (plugin for VirtualSMC.kext)
+| [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9 (plugin for VirtualSMC.kext)
 | [WhateverGreen](https://github.com/acidanthera/WhateverGreen) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#graphics) | v1.4.6 (NEED to edit section DeviceProperties)
 | [AppleALC](https://github.com/acidanthera/AppleALC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#audio) | v1.5.6 (NEED to edit section DeviceProperties `ALC256 layout-id 69 for Xiaomi Pro Enhanced 2019`)
+| [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.2.0 alpha
+| [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.1.2
+| [IntelBluetoothInjector](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.1.2 (plugin for IntelBluetoothFirmware.kext)
 
 ## Post-Install
 
