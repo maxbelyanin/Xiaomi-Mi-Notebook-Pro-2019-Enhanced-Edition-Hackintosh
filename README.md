@@ -27,4 +27,5 @@
 
 | Name | Type | Details
 | --- | --- | ---
-| [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi) | Driver | *Latest commit 192ed42 on Mar 1, 2020*
+| [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi) | [Driver](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers) | *Latest commit 192ed42 on Mar 1, 2020*
+| [Lilu](https://github.com/acidanthera/Lilu) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.5.0
