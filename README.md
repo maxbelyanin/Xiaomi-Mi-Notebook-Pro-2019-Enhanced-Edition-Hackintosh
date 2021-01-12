@@ -39,6 +39,13 @@
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.2.0 alpha
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.1.2
 | [IntelBluetoothInjector](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.1.2 (plugin for IntelBluetoothFirmware.kext)
+| [VoodooI2CServices](https://github.com/VoodooI2C/VoodooI2C) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.6.3 (plugin for VoodooI2C)
+| [VoodooGPIO](https://github.com/VoodooI2C/VoodooI2C) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.6.3 (plugin for VoodooI2C)
+| [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.6.3
+| [VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2C) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.6.3 (from VoodooI2C bundle)
+| [VoodooInput](https://github.com/VoodooI2C/VoodooI2C) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.6.3 (plugin for VoodooI2C)
+| [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.2.0 (from VoodooPS2 bundle)
+| [VoodooPS2Keyboard](https://github.com/acidanthera/VoodooPS2) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics) | v2.2.0 (plugin for VoodooPS2Controller from VoodooPS2 bundle)
 
 ## Post-Install
 
