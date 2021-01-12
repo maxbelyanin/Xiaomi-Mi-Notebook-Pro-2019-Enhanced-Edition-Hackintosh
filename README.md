@@ -6,6 +6,8 @@
   - [Post-Install](#post-install)
   - [Tools](#tools)
   - [config.plist](#configplist)
+  - [Useful commands](#useful-commands)
+    - [rebuild kext cache](#rebuild-kext-cache)
 
 ## Configuration
 
@@ -90,3 +92,11 @@ Misc -> Security:
 
 - AuthRestart `false`???
 - SecureBootModel `disabled`???
+
+## Useful commands
+
+### rebuild kext cache
+
+```zsh
+sudo kextcache -i /
+```
