@@ -7,8 +7,8 @@
   - [EFI/OC/ACPI](#efiocacpi)
     - [1. Fixing System Clocks (SSDT-AWAC)](#1-fixing-system-clocks-ssdt-awac)
     - [2. Disabling laptop dGPUs (SSDT-dGPU-Off/NoHybGfx)](#2-disabling-laptop-dgpus-ssdt-dgpu-offnohybgfx)
-      - [2.1 Disabling laptop dGPUs. Optimus Method (SSDT-DGPU-OFF.dsl)](#21-disabling-laptop-dgpus-optimus-method-ssdt-dgpu-offdsl)
-      - [2.2 Disabling laptop dGPUs. Bumblebee Method (SSDT-NO-HYB-GFX.dsl)](#22-disabling-laptop-dgpus-bumblebee-method-ssdt-no-hyb-gfxdsl)
+      - [2.1 Disabling laptop dGPUs. Optimus Method (SSDT-DGPU-OPT.dsl)](#21-disabling-laptop-dgpus-optimus-method-ssdt-dgpu-optdsl)
+      - [2.2 Disabling laptop dGPUs. Bumblebee Method (SSDT-DGPU-BUM.dsl)](#22-disabling-laptop-dgpus-bumblebee-method-ssdt-dgpu-bumdsl)
     - [3. Fixing Embedded Controllers (SSDT-EC-USBX.dsl)](#3-fixing-embedded-controllers-ssdt-ec-usbxdsl)
     - [4. Let brightness key and screenshot key work with VoodooPS2Controller.kext (SSDT-LGPA.dsl)](#4-let-brightness-key-and-screenshot-key-work-with-voodoops2controllerkext-ssdt-lgpadsl)
     - [5. Fixing SMBus support (SSDT-SBUS-MCHC.dsl)](#5-fixing-smbus-support-ssdt-sbus-mchcdsl)
@@ -57,8 +57,8 @@
 | Purpose | Name | Enable
 | --- | --- | :---:
 | [1. Fixing System Clocks](#1-fixing-system-clocks-ssdt-awac) | SSDT-AWAC | Y
-| [2.1 Disabling laptop dGPUs. Optimus Method](#21-disabling-laptop-dgpus-optimus-method-ssdt-dgpu-offdsl) | SSDT-DGPU-OFF | Y
-| [2.2 Disabling laptop dGPUs. Bumblebee Method](#22-disabling-laptop-dgpus-bumblebee-method-ssdt-no-hyb-gfxdsl) | SSDT-NO-HYB-GFX | Y
+| [2.1 Disabling laptop dGPUs. Optimus Method](#21-disabling-laptop-dgpus-optimus-method-ssdt-dgpu-optdsl) | SSDT-DGPU-OPT | Y
+| [2.2 Disabling laptop dGPUs. Bumblebee Method](#22-disabling-laptop-dgpus-bumblebee-method-ssdt-dgpu-bumdsl) | SSDT-DGPU-BUM | `N`
 | [3. Fixing Embedded Controllers](#3-fixing-embedded-controllers-ssdt-ec-usbxdsl) | SSDT-EC-USBX | Y
 | [4. Let brightness key and screenshot key work with VoodooPS2Controller.kext](#4-let-brightness-key-and-screenshot-key-work-with-voodoops2controllerkext-ssdt-lgpadsl) | SSDT-LGPA | Y
 | [5. Fixing SMBus support](#5-fixing-smbus-support-ssdt-sbus-mchcdsl) | SSDT-SBUS-MCHC | Y
@@ -82,11 +82,11 @@ SSDT-AWAC tries to re-enable the old RTC clock that is compatible with macOS, wh
 
 ### [2. Disabling laptop dGPUs (SSDT-dGPU-Off/NoHybGfx)](https://dortania.github.io/Getting-Started-With-ACPI/Laptops/laptop-disable.html)
 
-#### [2.1 Disabling laptop dGPUs. Optimus Method (SSDT-DGPU-OFF.dsl)](https://dortania.github.io/Getting-Started-With-ACPI/Laptops/laptop-disable.html#optimus-method)
+#### [2.1 Disabling laptop dGPUs. Optimus Method (SSDT-DGPU-OPT.dsl)](https://dortania.github.io/Getting-Started-With-ACPI/Laptops/laptop-disable.html#optimus-method)
 
 How this works is that we call the `.off` method found on Optimus GPUs, this is the expected way to power off a GPU but some may find their dGPU will power back up later on. Mainly seen in Lenovo's, the Optimus method should work for most users
 
-#### [2.2 Disabling laptop dGPUs. Bumblebee Method (SSDT-NO-HYB-GFX.dsl)](https://dortania.github.io/Getting-Started-With-ACPI/Laptops/laptop-disable.html#bumblebee-method)
+#### [2.2 Disabling laptop dGPUs. Bumblebee Method (SSDT-DGPU-BUM.dsl)](https://dortania.github.io/Getting-Started-With-ACPI/Laptops/laptop-disable.html#bumblebee-method)
 
 With some machines, the simple `.off` call won't keep the card off properly, that's where the Bumblebee method comes in. This SSDT will actually send the dGPU into D3 state being the lowest power state a device can support. Credit to Maemo for the original adaptation.
 
