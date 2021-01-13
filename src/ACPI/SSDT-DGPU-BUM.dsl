@@ -5,7 +5,7 @@
 * Important: Change all ACPI paths accordingly.
 * Credit to Maemo for original idea and midi1996 for the SSDT
 */
-DefinitionBlock ("", "SSDT", 2, "DRTNIA", "NO-HYB-GFX", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "DRTNIA", "DGPU-BUM", 0x00000000)
 {
     External (_SB_.PCI0.RP05.PXSX._DSM, MethodObj)    // dGPU ACPI Path
     External (_SB_.PCI0.RP05.PXSX._PS3, MethodObj)    // dGPU ACPI Path
