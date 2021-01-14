@@ -117,8 +117,6 @@ Scope (_SB)
     }
 ```
 
-
-
 ### [1. Fixing System Clocks (SSDT-AWAC)](https://dortania.github.io/Getting-Started-With-ACPI/Universal/awac-methods/manual.html)
 
 Fixing System Clocks. Force enable legacy RTC on Intel 300-series.
