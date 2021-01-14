@@ -27,6 +27,10 @@
     - [Dortania](#dortania)
     - [Virtual keycodes](#virtual-keycodes)
   - [USB Mapping (USBMap.kext)](#usb-mapping-usbmapkext)
+  - [OpenCore Post-Install](#opencore-post-install)
+    - [Fixing Sleep](#fixing-sleep)
+      - [Preparations](#preparations)
+      - [Main culprits](#main-culprits)
 
 ## Configuration
 
@@ -192,6 +196,7 @@ Necessary hotpatch, work with VoodooI2C.kext and VoodooI2CHID.kext
 | [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) | v1.1.9 (plugin for VirtualSMC.kext)
 | [WhateverGreen](https://github.com/acidanthera/WhateverGreen) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#graphics) | v1.4.6 (NEED to edit section DeviceProperties)
 | [AppleALC](https://github.com/acidanthera/AppleALC) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#audio) | v1.5.6 (NEED to edit section DeviceProperties `ALC256 layout-id 69 for Xiaomi Pro Enhanced 2019`)
+| [NVMeFix](https://github.com/acidanthera/NVMeFix) | [Kext](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html#fixing-nvme) | v1.0.5
 | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.2.0 alpha
 | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.1.2
 | [IntelBluetoothInjector](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | [Kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth) | v1.1.2 (plugin for IntelBluetoothFirmware.kext)
@@ -406,7 +411,7 @@ enum {
 };
 ```
 
-## USB Mapping (USBMap.kext)
+## [USB Mapping (USBMap.kext)](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html)
 
 | # | ID | USB | Location | Enabled
 | :---: | :---: | --- | --- | :---:
@@ -422,3 +427,90 @@ enum {
 | 14 | 14600000 | SS02 USB30 | N/L | Y
 | 15 | 14700000 | SS03 USB30 | F/L | Y
 | 16 | 14800000 | SS04 USB30 | F/R | Y
+
+## [OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/)
+
+### [Fixing Sleep](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html)
+
+#### [Preparations](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html#preparations)
+
+`In macOS`
+
+Before we get in too deep, we'll want to first ready our system:
+
+```zsh
+sudo pmset autopoweroff 0
+sudo pmset powernap 0
+sudo pmset standby 0
+sudo pmset proximitywake 0
+```
+
+This will do 4 things for us:
+
+1. Disables autopoweroff: This is a form of hibernation
+2. Disables powernap: Used to periodically wake the machine for network, and updates(but not the display)
+3. Disables standby: Used as a time period between sleep and going into hibernation
+4. Disables wake from iPhone/Watch: Specifically when your iPhone or Apple Watch come near, the machine will wake
+
+`In config.plist`
+
+- Misc -> Boot -> HibernateMode -> None
+  - We're gonna avoid the black magic that is S4 for this guide
+- NVRAM -> Add -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args
+  - keepsyms=1 - Makes sure that if a kernel panic does happen during sleep, that we get all the important bits from it
+  - swd_panic=1 - Avoids issue where going to sleep results in a reboot, this should instead give us a kernel panic log
+
+#### [Main culprits](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html#main-culprits)
+
+1. [Fixing USB](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html#fixing-usb)
+   1. [Fixing Shutdown/Restart](https://dortania.github.io/OpenCore-Post-Install/usb/misc/shutdown.html)
+      1. [SSDT-USB-FIXSHUTDOWN.dsl](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/FixShutdown-USB-SSDT.dsl)
+      2. [Patch-USB-FIXSHUTDOWN.plist](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/FixShutdown-Patch.plist)
+   2. [Fixing Instant Wake](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html)
+      1. Check:
+
+          ```zsh
+          In:
+          pmset -g log | grep -e "Sleep.*due to" -e "Wake.*due to"
+          
+          Out:
+          2021-01-13 03:07:43 +0300 Sleep               Entering Sleep state due to 'Software Sleep pid=129': Using AC (Charge:0%) 
+          
+          // NO INSTANT WAKE ISSUES!!!
+          ```
+
+      2. There is a `Method (GPRW, 2` in ACPI. Use:
+         1. [SSDT-GPRW](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/SSDT-GPRW.aml)
+         2. [GPRW to XPRW Patch (Patch-GPRW)](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/GPRW-Patch.plist)
+
+   3. [Fixing Keyboard Wake Issues](https://dortania.github.io/OpenCore-Post-Install/usb/misc/keyboard.html)
+      1. [Add Wake Type Property](https://dortania.github.io/OpenCore-Post-Install/usb/misc/keyboard.html#method-1-add-wake-type-property-recommended)
+
+          ```zsh
+          In:
+          gfxutil
+
+          Out:
+          00:14.0 8086:02ed /PCI0@0/XHC@14 = PciRoot(0x0)/Pci(0x14,0x0)
+          ```
+
+      2. Add to: `config.plist -> DeviceProperties -> Add: "acpi-wake-type | Data | <01>"`
+
+          ```xml
+          <key>PciRoot(0x0)/Pci(0x14,0x0)</key>
+          <dict>
+            <key>model</key>
+            <string>Intel Comet Lake PCH-LP USB 3.1 xHCI Host Controller</string>
+            <key>name</key>
+            <string>pci8086,2ed</string>
+            <key>acpi-wake-type</key>
+            <data>AQ==</data>
+          </dict>
+          ```
+
+2. [Fixing NVMe](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html#fixing-nvme)
+
+TODO:
+
+- USB FIX SHUTDOWN
+- GPRW
