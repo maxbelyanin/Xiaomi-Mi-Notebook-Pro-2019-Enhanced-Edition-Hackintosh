@@ -566,15 +566,10 @@ The SmUUID part gets copied to Generic -> SystemUUID.
  #            MacBookPro16,3 SMBIOS Info               #
 #######################################################
 
-Type:         <generated value> - to Generic -> SystemProductName MacBookPro16,3
-Serial:       <generated value> - to Generic -> SystemSerialNumber C02D7WZ5P3XY
-Board Serial: <generated value> - to Generic -> MLB C02033301GU0000JA
-SmUUID:       <generated value> - to Generic -> SystemUUID E7AE2444-C0D3-40AF-B90C-6D8C2BBB1921
+Type:         <generated value> - to Generic -> SystemProductName
+Serial:       <generated value> - to Generic -> SystemSerialNumber
+Board Serial: <generated value> - to Generic -> MLB
+SmUUID:       <generated value> - to Generic -> SystemUUID
 ```
 
 ### UEFI
-
-TODO:
-
-- USB FIX SHUTDOWN
-- GPRW
