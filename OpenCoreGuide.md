@@ -1,0 +1,173 @@
+# OpenCoreGuide
+
+- [Dortania Home Site](https://dortania.github.io/)
+- [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+  - USB Creation
+    - Creating the USB
+      - Making the installer in macOS
+      - Making the installer in Windows
+      - Making the installer in Linux
+    - [Adding The Base OpenCore Files](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/opencore-efi.html)
+    - [Gathering files](https://dortania.github.io/OpenCore-Install-Guide/ktext.html)
+      - [Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
+        - [Universal](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#universal)
+      - [Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
+        - [Must haves](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#must-haves)
+        - [VirtualSMC Plugins](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#virtualsmc-plugins)
+        - [Graphics](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#graphics)
+        - [Audio](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#audio)
+        - Ethernet
+        - [USB](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#usb)
+        - [WiFi and Bluetooth](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth)
+        - AMD CPU Specific kexts
+        - [Extras](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#extras)
+        - [Laptop Specifics](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop-specifics)
+      - [SSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#ssdts)
+        - [Laptop](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop)
+    - [Getting started with ACPI](https://dortania.github.io/Getting-Started-With-ACPI)
+    - [config.plist Setup](https://dortania.github.io/OpenCore-Install-Guide/config.plist/)
+      - [Creating your config.plist](https://dortania.github.io/OpenCore-Install-Guide/config.plist/#creating-your-config-plist)
+      - [Adding your SSDTs, Kexts and Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/config.plist/#adding-your-ssdts-kexts-and-firmware-drivers)
+      - [Laptop Coffee Lake Plus and Comet Lake](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html)
+        - [Starting Point](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#starting-point)
+        - [ACPI](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#acpi)
+        - [Booter](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#booter)
+        - [DeviceProperties](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#deviceproperties)
+        - [Kernel](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#kernel)
+        - [Misc](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#misc)
+        - [NVRAM](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram)
+        - [PlatformInfo](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#platforminfo)
+        - [UEFI](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#uefi)
+        - [Cleaning up](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#cleaning-up)
+        - [Intel BIOS settings](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#intel-bios-settings)
+  - [Installation Process](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html)
+    - [Double checking your work](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work)
+    - [Booting the OpenCore USB](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb)
+    - [macOS Installer](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#macos-installer)
+  - Troubleshooting
+    - [General Troubleshooting](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html)
+      - [OpenCore Boot Issues](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/opencore-issues.html)
+        - Stuck on a black screen before picker
+        - Stuck on no vault provided!
+        - Stuck on OC: Invalid Vault mode
+        - Can't see macOS partitions
+        - Stuck on OCB: OcScanForBootEntries failure - Not Found
+        - Stuck on OCB: failed to match a default boot option
+        - Stuck on OCB: System has no boot entries
+        - Stuck on OCS: No schema for DSDT, KernelAndKextPatch, RtVariable, SMBIOS, SystemParameters...
+        - Stuck on OC: Driver XXX.efi at 0 cannot be found
+        - Receiving "Failed to parse real field of type 1"
+        - Can't select anything in the picker
+        - SSDTs not being added
+        - Booting OpenCore reboots to BIOS
+        - OCABC: Incompatible OpenRuntime r4, require r10
+      - [Kernel Issues](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html)
+        - Stuck on [EB|#LOG:EXITBS:START]
+        - Stuck on EndRandomSeed
+        - Stuck after selecting macOS partition in OpenCore
+        - Kernel Panic on Invalid frame pointer
+        - Stuck on [EB|LD:OFS] Err(0xE) when booting preboot volume
+        - Stuck on OCB: LoadImage failed - Security Violation
+        - Stuck on OCABC: Memory pool allocation failure - Not Found
+        - Stuck on Buffer Too Small
+        - Stuck on Plist only kext has CFBundleExecutable key
+        - Stuck on This version of Mac OS X is not supported: Reason Mac...
+        - Couldn't allocate runtime area errors
+        - Stuck on RTC..., PCI Configuration Begins, Previous Shutdown..., HPET, HID: Legacy...
+        - Stuck at ACPI table loading on B550
+        - "Waiting for Root Device" or Prohibited Sign error
+        - Kernel panic with IOPCIFamily on X99
+        - Stuck on or near IOConsoleUsers: gIOScreenLock.../gIOLockState (3...
+        - Scrambled Screen on laptops
+        - Black screen after IOConsoleUsers: gIOScreenLock... on Navi
+        - Kernel Panic Cannot perform kext summary
+        - Kernel Panic AppleIntelMCEReporter
+        - Kernel Panic AppleIntelCPUPowerManagement
+        - macOS frozen right before login
+        - Keyboard works but trackpad does not
+        - kextd stall[0]: AppleACPICPU
+        - Kernel Panic on AppleIntelI210Ethernet
+        - Kernel panic on "Wrong CD Clock Frequency" with Icelake laptop
+        - Kernel panic on "cckprngintgen"
+        - Stuck at Forcing CS_RUNTIME for entitlement in Big Sur
+        - Stuck on ramrod(^^^^^^^^^^^^^)
+      - [Userspace Issues](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/userspace-issues.html)
+        - macOS installer in Russian
+        - macOS Installer being damaged
+        - Stuck on or near IOConsoleUsers: gIOScreenLock.../gIOLockState (3...
+        - Scrambled Screen on laptops
+        - Black screen after IOConsoleUsers: gIOScreenLock... on Navi
+        - Frozen in the macOS installer after 30 seconds
+        - 15h/16h CPU reboot after Data & Privacy screen
+        - macOS frozen right before login
+        - MediaKit reports not enough space
+        - DiskUtility failing to erase
+        - SATA Drives Not Shown in DiskUtility
+        - Stuck at 2 minutes remaining
+        - The recovery server cannot get contacted
+        - Keyboard and Mouse broken in Big Sur
+        - Stuck on Your Mac needs a firmware update in order to install to this volume
+      - [Post-Install Issues](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/post-issues.html)
+        - Broken iMessage and Siri
+        - No on-board audio
+        - BIOS reset or sent into Safemode after reboot/shutdown
+        - Synaptics PS2 based trackpad doesn't work
+        - Fix for Dell breakless PS2 keyboard keys
+        - macOS GPU acceleration missing on AMD X570
+        - DRM Broken
+        - "Memory Modules Misconfigured" on MacPro7,1
+        - Apps crashing on AMD
+        - Sleep crashing on AMD
+        - AssetCache Content Caching unavailable in virtual machine
+        - Coffee Lake systems failing to wake
+        - No temperature/fan sensor output
+        - "You can't change the startup disk to the selected disk" error
+        - Selecting Startup Disk doesn't apply correctly
+        - macOS waking up with the wrong time
+        - No Volume/Brightness control on external monitors
+        - Time inconsistency between macOS and Windows
+        - Disabling SIP
+        - Writing to the macOS system partition
+        - Rolling back APFS Snapshots
+        - Apple Watch Unlock issues
+        - 4K iGPU output issues over HDMI
+      - [Miscellaneous Issues](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/misc-issues.html)
+        - Can't run acpidump.efi
+        - Fixing SSDTTime: Could not locate or download iasl!
+        - Fix Python: Python is not installed or not found on PATH
+        - Windows Startup Disk can't see APFS drives
+        - Incorrect resolution with OpenCore
+        - Can't find Windows/BootCamp drive in picker
+        - Selecting Startup Disk doesn't apply correctly
+        - Booting Windows results in BlueScreen or Linux crashes
+        - Booting Windows error: OCB: StartImage failed - Already started
+        - iASL warning, # unresolved
+        - Time inconsistency between macOS and Windows
+    - [OpenCore Debugging](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html)
+      - [File Swaps](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html#file-swaps)
+      - [Config Changes](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html#config-changes)
+      - [Disabling all logging](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html#disabling-all-logging)
+    - [Understanding the macOS Boot Process](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/boot.html)
+      - OpenCore Booting
+      - boot.efi Handoff
+      - XNU/Kernel Handoff
+      - macOS Handoff
+  - [OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/)
+    - Introduction
+      - [OpenCore Post-Install](https://dortania.github.io/OpenCore-Post-Install/)
+        - How to follow this guide
+    - Universal
+    - Fixing Audio
+    - Booting without USB
+    - Updating OpenCore, kexts and macOS
+    - Fixing DRM
+    - Fixing iServices
+    - Fixing Power Management
+    - Fixing Sleep
+    - USB Fixes
+    - USB Mapping: Introduction
+    - System Preparation
+    - USB Mapping
+- [GPU Buyers Guide](https://dortania.github.io/GPU-Buyers-Guide/)
+- [Wireless Buyers Guide](https://dortania.github.io/Wireless-Buyers-Guide/)
+- [Anti-Hackintosh Buyers Guide](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/)
