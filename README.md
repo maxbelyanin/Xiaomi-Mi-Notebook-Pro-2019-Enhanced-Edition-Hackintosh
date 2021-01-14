@@ -26,6 +26,7 @@
   - [Refs](#refs)
     - [Dortania](#dortania)
     - [Virtual keycodes](#virtual-keycodes)
+  - [USB Mapping (USBMap.kext)](#usb-mapping-usbmapkext)
 
 ## Configuration
 
@@ -404,3 +405,20 @@ enum {
   kVK_UpArrow                   = 0x7E
 };
 ```
+
+## USB Mapping (USBMap.kext)
+
+| # | ID | USB | Location | Enabled
+| :---: | :---: | --- | --- | :---:
+| 01 | 14100000 | HS01 USB20 | N/R | Y
+| 03 | 14200000 | HS03 USB20 | N/L | Y
+| 04 | 14300000 | HS04 USB20 | F/R | Y
+| 06 | 14600000 | HS06 Webcam | | Y
+| 07 | 14700000 | USB20 | SD Card Reader | `N`
+| 08 | 14800000 | USB20 | Fingerprint | `N`
+| 09 | 14400000 | HS09 USB20 | F/L | Y
+| 10 | 14a00000 | HS10 USB20 | Bluetooth | Y
+| 13 | 14500000 | SS01 USB30 | N/R | Y
+| 14 | 14600000 | SS02 USB30 | N/L | Y
+| 15 | 14700000 | SS03 USB30 | F/L | Y
+| 16 | 14800000 | SS04 USB30 | F/R | Y
