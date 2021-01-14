@@ -18,7 +18,7 @@
 				<key>Comment</key>
 				<string>Disable discrete graphics card. Optimus Method</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-DGPU-OPT.aml</string>
 			</dict>
@@ -26,7 +26,7 @@
 				<key>Comment</key>
 				<string>Disable discrete graphics card. Bumblebee Method</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>SSDT-DGPU-BUM.aml</string>
 			</dict>
