@@ -5,6 +5,7 @@
   - [EFI/OC/Drivers](#efiocdrivers)
     - [HfsPlus.efi](#hfsplusefi)
   - [EFI/OC/ACPI](#efiocacpi)
+    - [Fixing Power Management (SSDT-PLUG)](#fixing-power-management-ssdt-plug)
     - [1. Fixing System Clocks (SSDT-AWAC)](#1-fixing-system-clocks-ssdt-awac)
     - [2. Disabling laptop dGPUs (SSDT-dGPU-Off/NoHybGfx)](#2-disabling-laptop-dgpus-ssdt-dgpu-offnohybgfx)
       - [2.1 Disabling laptop dGPUs. Optimus Method (SSDT-DGPU-OPT.dsl)](#21-disabling-laptop-dgpus-optimus-method-ssdt-dgpu-optdsl)
@@ -83,6 +84,40 @@
 | [6. Fixing Backlight](#6-fixing-backlight-ssdt-pnlfcfldsl) | SSDT-PNLFCFL | Y
 | [7. Customize VoodooPS2Keyboard.kext](#7-customize-voodoops2keyboardkext-ssdt-ps2kdsl) | SSDT-PS2K | Y
 | [8. Enable trackpad GPIO interrupt mode, work with VoodooI2C.kext and VoodooI2CHID.kext](#8-enable-trackpad-gpio-interrupt-mode-work-with-voodooi2ckext-and-voodooi2chidkext-ssdt-tpd0) | SSDT-TPD0 | Y
+
+### [Fixing Power Management (SSDT-PLUG)](https://dortania.github.io/Getting-Started-With-ACPI/Universal/plug.html)
+
+The purpose of SSDT-PLUG is to allow the kernel's XCPM(XNU's CPU Power Management) to manage our CPU's power management. It's pretty self explanatory why you'd want this. Injects the plugin-type=1 property into our system.
+
+ACPI path:
+
+```C++
+Scope (_SB)
+    {
+        Processor (PR00, 0x01, 0x00001810, 0x06){}
+        Processor (PR01, 0x02, 0x00001810, 0x06){}
+        Processor (PR02, 0x03, 0x00001810, 0x06){}
+        Processor (PR03, 0x04, 0x00001810, 0x06){}
+        Processor (PR04, 0x05, 0x00001810, 0x06){}
+        Processor (PR05, 0x06, 0x00001810, 0x06){}
+        Processor (PR06, 0x07, 0x00001810, 0x06){}
+        Processor (PR07, 0x08, 0x00001810, 0x06){}
+        Processor (PR08, 0x09, 0x00001810, 0x06){}
+        Processor (PR09, 0x0A, 0x00001810, 0x06){}
+        Processor (PR10, 0x0B, 0x00001810, 0x06){}
+        Processor (PR11, 0x0C, 0x00001810, 0x06){}
+        Processor (PR12, 0x0D, 0x00001810, 0x06){}
+        Processor (PR13, 0x0E, 0x00001810, 0x06){}
+        Processor (PR14, 0x0F, 0x00001810, 0x06){}
+        Processor (PR15, 0x10, 0x00001810, 0x06){}
+        Processor (PR16, 0x11, 0x00001810, 0x06){}
+        Processor (PR17, 0x12, 0x00001810, 0x06){}
+        Processor (PR18, 0x13, 0x00001810, 0x06){}
+        Processor (PR19, 0x14, 0x00001810, 0x06){}
+    }
+```
+
+
 
 ### [1. Fixing System Clocks (SSDT-AWAC)](https://dortania.github.io/Getting-Started-With-ACPI/Universal/awac-methods/manual.html)
 
