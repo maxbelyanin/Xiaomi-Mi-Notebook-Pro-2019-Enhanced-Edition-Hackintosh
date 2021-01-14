@@ -45,6 +45,10 @@
     - [NVRAM](#nvram)
     - [PlatformInfo](#platforminfo)
     - [UEFI](#uefi)
+  - [Using CPU Friend](#using-cpu-friend)
+    - [LFM: Low Frequency Mode](#lfm-low-frequency-mode)
+    - [EPP: Energy Performance Preference](#epp-energy-performance-preference)
+    - [Performance Bias](#performance-bias)
 
 ## Configuration
 
@@ -606,3 +610,99 @@ SmUUID:       <generated value> - to Generic -> SystemUUID
 ```
 
 ### UEFI
+
+## Using CPU Friend
+
+### [LFM: Low Frequency Mode](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#lfm-low-frequency-mode)
+
+[Intel® Core™ i7-10510U Processor](https://ark.intel.com/content/www/us/en/ark/products/196449/intel-core-i7-10510u-processor-8m-cache-up-to-4-90-ghz.html)
+
+CPU Spec (Thermal Design Power):
+
+| Key | Value |
+| --- | ---
+| TDP | 15W
+| Configurable TDP-up Frequency | 2.30 GHz
+| Configurable TDP-up | 25 W
+| Configurable TDP-down Frequency | 800 MHz
+| Configurable TDP-down | 10 W
+
+```zsh
+  #######################################################
+ #                  CPUFriendFriend                    #
+#######################################################
+
+Current Board:  Mac-E7203C0F68AA0004
+Current SMBIOS: MacBookPro16,3
+
+Low Frequency Mode (LFM):
+
+This option defines the lowest operating frequency for your processor. Refer to your CPU specifications on Intel's website, for your CPUs LFM or TDP-Down frequency.
+
+Current Setting:    0x0C (1200 MHz)
+
+
+Enter the value for your CPU (For 800Mhz enter 08, for 1300Mhz enter 0D):  08
+```
+
+LFM Value = **0x08 (Equivalent of 800Mhz)**
+
+### [EPP: Energy Performance Preference](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#epp-energy-performance-preference)
+
+| EPP |Speed
+| --- | ---
+| 0x00-0x3F | Max Performance
+| 0x40-0x7F | Balance performance
+| 0x80-0xBF | Balance power
+| 0xC0-0xFF | Max Power Saving
+
+```zsh
+  #######################################################
+ #                  CPUFriendFriend                    #
+#######################################################
+
+Building CPUFriendDataProvider.
+Energy Performance Preference (EPP):
+HWP EPP adjustment configures the intel p_state preference policy.
+
+EPP Ranges:
+  0x00-0x3F    :    Performance
+  0x40-0x7F    :    Balanced Performance
+  0x80-0xBF    :    Balanced Power Savings
+  0xC0-0xFF    :    Power
+Settings found in modern Apple computers:
+  0x90         :    Modern MacBook Pro
+  0x80         :    Modern MacBook Air
+
+Current Setting: 90 (Balanced Power Savings)
+
+Enter the new EPP value in hex:  0xBF
+```
+
+EPP: **0xBF**
+
+### [Performance Bias](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#performance-bias)
+
+```zsh
+  #######################################################
+ #                  CPUFriendFriend                    #
+#######################################################
+
+Building CPUFriendDataProvider.
+Perf Bias:
+Perf-Bias is a performance and energy bias hint used to specify power preference.  Expressed as a range, 0 represents preference for performance, 15 represents preference for maximum power saving.
+
+Perf Bias Range:
+  0x00-0x15
+Settings found in modern Apple computers:
+  0x05              :    Modern MacBook Pro
+  0x07              :    Modern MacBook Air
+
+Current Setting: 05 
+
+Enter the new PerfBias value in hex:  08
+```
+
+Bias: **08**
+
+CPUFriendDataProvider.kext
