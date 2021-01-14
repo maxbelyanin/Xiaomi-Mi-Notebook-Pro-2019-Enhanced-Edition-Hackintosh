@@ -1,0 +1,16 @@
+ - SSDT-ALS0    - Fake ambient light sensor device
+ + SSDT-AWAC    - Force enable legacy RTC on Intel 300-series
+ + SSDT-DDGPU   - Disable discrete graphics card
+ - SSDT-DMAC    - Add DMAC device
+ +!! SSDT-EC      - Add EC device
+ -!! SSDT-GPRW    - Fix instant wake, pair with GPRW rename
+ -!! SSDT-HPET    - Disable HPET device
+ ++ SSDT-LGPA    - Brightness key, pair with LGPA rename
+ -!!SSDT-MCHC    - Add MCHC device
+ - SSDT-PMC     - Add PMCR device for Intel 300-series
+ + SSDT-PNLFCFL - Add PNLF device for brightness support, pair with WhateverGreen.kext
+ +!! SSDT-PS2K    - Customize VoodooPS2Keyboard.kext
+ -! SSDT-RMNE    - Fake an ethernet card, pair with NullEthernet.kext
+ ++ SSDT-TPD0    - Enable trackpad interrupt mode, pair with VoodooI2C.kext and VoodooI2CHID.kext
+SSDT-USB     - USB power injection and customization, pair with SSDT-EC and _UPC rename (Native Bluetooth)
+SSDT-XCPM    - Inject plugin-type=1
