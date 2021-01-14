@@ -20,7 +20,6 @@
   - [Trackpad](#trackpad)
   - [Post-Install](#post-install)
   - [Tools](#tools)
-  - [config.plist](#configplist)
   - [Useful commands](#useful-commands)
     - [rebuild kext cache](#rebuild-kext-cache)
   - [Refs](#refs)
@@ -31,6 +30,20 @@
     - [Fixing Sleep](#fixing-sleep)
       - [Preparations](#preparations)
       - [Main culprits](#main-culprits)
+  - [config.plist](#configplist)
+    - [Starting Point](#starting-point)
+    - [ACPI](#acpi)
+    - [Booter](#booter)
+      - [Booter -> Quirks](#booter---quirks)
+    - [DeviceProperties](#deviceproperties)
+    - [Kernel -> Quirks](#kernel---quirks)
+    - [Kernel -> Scheme](#kernel---scheme)
+    - [Misc](#misc)
+      - [Misc -> Debug](#misc---debug)
+      - [Misc -> Security](#misc---security)
+    - [NVRAM](#nvram)
+    - [PlatformInfo](#platforminfo)
+    - [UEFI](#uefi)
 
 ## Configuration
 
@@ -222,36 +235,6 @@ Necessary hotpatch, work with VoodooI2C.kext and VoodooI2CHID.kext
 
 - [ProperTree](https://github.com/corpnewt/ProperTree) - Universal plist editor
 - [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) - For generating our SMBIOS data
-
-## config.plist
-
-Booter -> Quirks:
-
-- EnableSafeModeSlide `true`???
-- DevirtualiseMmio `true`???
-- ProtectUefiServices `true`???
-- SetupVirtualMap `false`???
-
-Kernel -> Quirks:
-
-- CustomSMBIOSGuid `false`???
-- DisableRtcChecksum `false`???
-
-Kernel -> Scheme:
-
-- FuzzyMatch `true`???
-
-Misc -> Debug:
-
-- AppleDebug `false`???
-- ApplePanic `false`???
-- DisableWatchDog `false`???
-- Target `0`???
-
-Misc -> Security:
-
-- AuthRestart `false`???
-- SecureBootModel `disabled`???
 
 ## Useful commands
 
@@ -509,6 +492,87 @@ This will do 4 things for us:
           ```
 
 2. [Fixing NVMe](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html#fixing-nvme)
+
+## config.plist
+
+### Starting Point
+
+### ACPI
+
+### Booter
+
+#### Booter -> Quirks
+
+- EnableSafeModeSlide `true`???
+- DevirtualiseMmio `true`???
+- ProtectUefiServices `true`???
+- SetupVirtualMap `false`???
+
+### DeviceProperties
+
+### Kernel -> Quirks
+
+- CustomSMBIOSGuid `false`???
+- DisableRtcChecksum `false`???
+
+### Kernel -> Scheme
+
+- FuzzyMatch `true`???
+
+### Misc
+
+#### Misc -> Debug
+
+- AppleDebug `false`???
+- ApplePanic `false`???
+- DisableWatchDog `false`???
+- Target `0`???
+
+#### Misc -> Security
+
+- AuthRestart `false`???
+- SecureBootModel `disabled`???
+
+### NVRAM
+
+### [PlatformInfo](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#platforminfo)
+
+TODO: NONE
+
+Refs:
+
+- [Choosing the right SMBIOS](https://dortania.github.io/OpenCore-Install-Guide/extras/smbios-support.html)
+- [EveryMac.com](https://everymac.com/) - EveryMac.com organizes specs on all Macs -- from the original 128k to the current models -- By Series, Year, Processor & Case Type.
+- [macOS SMBIOS MacBook Pro](https://dortania.github.io/OpenCore-Install-Guide/extras/smbios-support.html#macbook-pro)
+
+Deps:
+
+- [Fixing Power management](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html)
+- CPUFriend
+
+| SMBIOS | CPU Family | GPU | board-id | Initial Support | Last Supported Version
+| --- | --- | --- | --- | --- | ---
+| MacBookPro16,3 | Coffee Lake(U) | Iris Plus 645 (13") | Mac-E7203C0F68AA0004 | 10.15.4 (19E2269)
+
+[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) - settings generator application:
+
+The Type part gets copied to Generic -> SystemProductName.
+The Serial part gets copied to Generic -> SystemSerialNumber.
+The Board Serial part gets copied to Generic -> MLB.
+The SmUUID part gets copied to Generic -> SystemUUID.
+
+```zsh
+  #######################################################
+ #            MacBookPro16,3 SMBIOS Info               #
+#######################################################
+
+Type:         <generated value> - to Generic -> SystemProductName MacBookPro16,3
+Serial:       <generated value> - to Generic -> SystemSerialNumber C02D7WZ5P3XY
+Board Serial: <generated value> - to Generic -> MLB C02033301GU0000JA
+SmUUID:       <generated value> - to Generic -> SystemUUID E7AE2444-C0D3-40AF-B90C-6D8C2BBB1921
+```
+
+### UEFI
 
 TODO:
 
