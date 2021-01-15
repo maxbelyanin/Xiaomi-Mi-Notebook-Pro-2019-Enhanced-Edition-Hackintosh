@@ -22,7 +22,7 @@
 	<string>1.0</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>XMCC19050,2-XHC</key>
+		<key>MacBookPro16,3-XHC</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
@@ -155,7 +155,7 @@
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>XMCC19050,2</string>
+			<string>MacBookPro16,3</string>
 		</dict>
 	</dict>
 	<key>OSBundleRequired</key>
