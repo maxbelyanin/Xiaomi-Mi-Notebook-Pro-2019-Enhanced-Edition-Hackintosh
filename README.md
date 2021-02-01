@@ -45,7 +45,7 @@
     - [Adding a platform for arbitrary kext, library, and program patching (Lilu.kext)](#adding-a-platform-for-arbitrary-kext-library-and-program-patching-lilukext)
     - [Adding SMC chip emulator (VirtualSMC.kext)](#adding-smc-chip-emulator-virtualsmckext)
     - [Adding Hardware Monitoring (SMCBatteryManager, SMCProcessor.kext, SMCSuperIO.kext)](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext)
-    - [Fixing Sleep (config.plist)](#fixing-sleep-configplist)
+    - [Fixing Sleep (HibernationFixup, config.plist)](#fixing-sleep-hibernationfixup-configplist)
     - [Optimizing Power Management (SSDT-PLUG, CPUFriendDataProvider.kext, CPUFriend.kext)](#optimizing-power-management-ssdt-plug-cpufrienddataproviderkext-cpufriendkext)
       - [Enabling X86PlatformPlugin (SSDT-PLUG)](#enabling-x86platformplugin-ssdt-plug)
       - [Using CPU Friend (CPUFriendDataProvider.kext, CPUFriend.kext)](#using-cpu-friend-cpufrienddataproviderkext-cpufriendkext)
@@ -278,7 +278,7 @@ TODO: !!!
 | Key                    | Type | Value | Comments
 | -----------------------| ---- | ----- | --------
 | ConsoleAttributes | Number | 0  *(Default)*
-| HibernateMode | String | None  *(Default)* | Avoid hibernation (Recommended). We're gonna avoid the black magic that is S4 for this guide. [Fixing Sleep](#fixing-sleep-configplist)
+| HibernateMode | String | None  *(Default)* | Avoid hibernation (Recommended). We're gonna avoid the black magic that is S4 for this guide. [Fixing Sleep](#fixing-sleep-hibernationfixup-configplist)
 | HideAuxiliary | Boolean | False  *(Default)*
 | PickerAttributes | Number | 17  *(Default)*
 | PickerAudioAssist | Boolean | False  *(Default)*
@@ -318,7 +318,7 @@ TODO: !!!
 | 4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14 -> UIScale | Data | <01>  *(Default)*
 | 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102 -> rtc-blacklist | Data | <> *(Default)*
 | 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> SystemAudioVolume | Data | <46> *(Default)*
-| 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args | String | -v keepsyms=1 gfxrst=1 -f swd_panic=1 | [Fixing Sleep](#fixing-sleep-configplist)
+| 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args | String | -v keepsyms=1 gfxrst=1 -f swd_panic=1 | [Fixing Sleep](#fixing-sleep-hibernationfixup-configplist)
 | 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config | Data | <00000000> *(Default)*
 | 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> prev-lang:kbd | Data | <72752D52 553A3235 32> *(Default)*
 | 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> run-efi-updater | String | No *(Default)*
@@ -400,17 +400,18 @@ TODO: !!!
 | 09   | USBMap | Y | 0.0.1 | [Fixing USB. USB Mapping](#fixing-usb-usb-mapping-usbmapkext)
 | 10   | [WhateverGreen](https://github.com/acidanthera/WhateverGreen) | Y | 1.4.6 | [Patching Intel iGPU](#patching-intel-igpu-whatevergreenkext-configplist)
 | 11   | [AppleALC](https://github.com/acidanthera/AppleALC) | Y | 1.5.6 | [Patching Audio](#patching-audio-applealckext-configplist)
-| 12   | [NVMeFix](https://github.com/acidanthera/NVMeFix) | Y | 1.0.5 | [Fixing NVMe](#fixing-nvme-nvmefixkext)
-| 13   | [VoodooI2CServices](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (plugin for VoodooI2C)
-| 14   | [VoodooGPIO](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (plugin for VoodooI2C)
-| 15   | [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext)
-| 16   | [VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (from VoodooI2C bundle)
-| 17   | [VoodooInput](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (plugin for VoodooI2C)
-| 18   | [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2) | Y | 2.2.0 | [Fixing Keyboard](#fixing-keyboard-ssdt-lgpa-ssdt-ps2k-voodoops2controllerkext-voodoops2keyboardkext-configplist) | (from VoodooPS2 bundle)
-| 19   | [VoodooPS2Keyboard](https://github.com/acidanthera/VoodooPS2) | Y | 2.2.0 | [Fixing Keyboard](#fixing-keyboard-ssdt-lgpa-ssdt-ps2k-voodoops2controllerkext-voodoops2keyboardkext-configplist) | (plugin for VoodooPS2Controller from VoodooPS2 bundle)
-| 20   | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) | Y | 1.2.0 alpha | [Fixing Wifi](#fixing-wifi-airportitlwmkext)
-| 21   | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.2 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext)
-| 22   | [IntelBluetoothInjector](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.2 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext). (plugin for IntelBluetoothFirmware.kext)
+| 12   | [HibernationFixup](https://github.com/acidanthera/HibernationFixup) | Y | 1.3.9 | [Fixing Sleep](#fixing-sleep-hibernationfixup-configplist)
+| 13   | [NVMeFix](https://github.com/acidanthera/NVMeFix) | Y | 1.0.5 | [Fixing NVMe](#fixing-nvme-nvmefixkext)
+| 14   | [VoodooI2CServices](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (plugin for VoodooI2C)
+| 15   | [VoodooGPIO](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (plugin for VoodooI2C)
+| 16   | [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext)
+| 17   | [VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (from VoodooI2C bundle)
+| 18   | [VoodooInput](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.3 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (plugin for VoodooI2C)
+| 19   | [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2) | Y | 2.2.0 | [Fixing Keyboard](#fixing-keyboard-ssdt-lgpa-ssdt-ps2k-voodoops2controllerkext-voodoops2keyboardkext-configplist) | (from VoodooPS2 bundle)
+| 20   | [VoodooPS2Keyboard](https://github.com/acidanthera/VoodooPS2) | Y | 2.2.0 | [Fixing Keyboard](#fixing-keyboard-ssdt-lgpa-ssdt-ps2k-voodoops2controllerkext-voodoops2keyboardkext-configplist) | (plugin for VoodooPS2Controller from VoodooPS2 bundle)
+| 21   | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) | Y | 1.2.0 alpha | [Fixing Wifi](#fixing-wifi-airportitlwmkext)
+| 22   | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.2 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext)
+| 23   | [IntelBluetoothInjector](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.2 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext). (plugin for IntelBluetoothFirmware.kext)
 
 ## Step By Step Configuration (From Scratch)
 
@@ -628,7 +629,7 @@ Tools:
 
 - **NONE**
 
-### Fixing Sleep (config.plist)
+### Fixing Sleep (HibernationFixup, config.plist)
 
 Deps:
 
@@ -636,6 +637,7 @@ Deps:
 
 Refs:
 
+- [HibernationFixup](https://github.com/acidanthera/HibernationFixup)
 - [Fixing Sleep](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html)
 - [Preparations](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html#preparations)
 
