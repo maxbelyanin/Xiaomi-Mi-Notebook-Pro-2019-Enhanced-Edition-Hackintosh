@@ -1,6 +1,6 @@
-# Mi-BigSur
+# Xiaomi-Mi-Notebook-Pro-2019-Enhanced-Edition-Hackintosh
 
-- [Mi-BigSur](#mi-bigsur)
+- [Xiaomi-Mi-Notebook-Pro-2019-Enhanced-Edition-Hackintosh](#xiaomi-mi-notebook-pro-2019-enhanced-edition-hackintosh)
   - [Hardware Configuration](#hardware-configuration)
   - [Opencore Configuration](#opencore-configuration)
     - [EFI/BOOT](#efiboot)
@@ -1481,7 +1481,7 @@ TODO: !!!
 - Thanks to [Dortania](https://github.com/dortania) for providing [SSDT-DGPU-BUM.dsl (SSDT-NoHybGfx.dsl)](https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/decompiled/SSDT-NoHybGfx.dsl), [SSDT-DGPU-OPT.dsl (SSDT-dGPU-Off.dsl)](https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/decompiled/SSDT-dGPU-Off.dsl), [SSDT-GPRW.aml](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/SSDT-GPRW.aml), [GPRW to XPRW Patch (Patch-GPRW)](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/GPRW-Patch.plist), [SSDT-USB-FIXSHUTDOWN.dsl (FixShutdown-USB-SSDT.dsl)](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/FixShutdown-USB-SSDT.dsl), [FixShutdown-Patch.plist](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/FixShutdown-Patch.plist)
 - Thanks to [Headkaze](https://github.com/headkaze) for providing [Hackintool](https://github.com/headkaze/Hackintool)
 - Thanks to [CorpNewt](https://github.com/corpnewt) for providing [USBMap](https://github.com/corpnewt/USBMap), [gibMacOS](https://github.com/corpnewt/gibMacOS), [ProperTree](https://github.com/corpnewt/ProperTree), [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS), [MountEFI](https://github.com/corpnewt/MountEFI)
-- Thanks to [Fewtarius](https://github.com/fewtarius) for providing [CPUFriendFriend (CPUFriendDataProvider)](https://github.com/fewtarius/CPUFriendFriend) (fork of [Corpnewt's](https://github.com/corpnewt) [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend))
+- Thanks to [Fewtarius](https://github.com/fewtarius) for providing [CPUFriendFriend (CPUFriendDataProvider)](https://github.com/fewtarius/CPUFriendFriend) (fork of [CorpNewt's](https://github.com/corpnewt) [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend))
 - Thanks to [Sniki](https://github.com/Sniki) for  providing [OS-X-USB-Inject-All](https://github.com/Sniki/OS-X-USB-Inject-All) (fork of [RehabMan's](https://github.com/RehabMan) [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All))
 - Thanks to [VoodooI2C](https://github.com/VoodooI2C) for providing [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)
 - Thanks to [OpenIntelWireless](https://github.com/OpenIntelWireless) for providing [AirportItlwm](https://github.com/OpenIntelWireless/itlwm), [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware)
