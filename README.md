@@ -75,7 +75,9 @@
   - [Debug](#debug)
     - [Useful commands](#useful-commands)
   - [Refs](#refs)
+    - [Tools](#tools)
     - [Dortania](#dortania)
+  - [Credits](#credits)
 
 ## Hardware Configuration
 
@@ -1452,6 +1454,17 @@ TODO: !!!
 
 ## Refs
 
+### Tools
+
+- [gibMacOS](https://github.com/corpnewt/gibMacOS) - macOS dowmloader
+- [ProperTree](https://github.com/corpnewt/ProperTree) - Universal plist editor
+- [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) - For generating our SMBIOS data
+- [MountEFI](https://github.com/corpnewt/MountEFI) - EFI mounter
+- [IORegistryExplorer](https://github.com/khronokernel/IORegistryClone/blob/master/ioreg-302.zip)
+- [ACPI 6.3 Manual](https://uefi.org/sites/default/files/resources/ACPI_6_3_May16.pdf) - Spec
+- [Current OpenCorePkg Configuration Doc](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)
+- [Sanity Checker](https://opencore.slowgeek.com/) - config.plist verifyer
+
 ### Dortania
 
 - [Dortania Home Site](https://dortania.github.io/)
@@ -1461,3 +1474,20 @@ TODO: !!!
 - [GPU Buyers Guide](https://dortania.github.io/GPU-Buyers-Guide/)
 - [Wireless Buyers Guide](https://dortania.github.io/Wireless-Buyers-Guide/)
 - [Anti-Hackintosh Buyers Guide](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/)
+
+## Credits
+
+- Thanks to [Acidanthera](https://github.com/acidanthera) for providing [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/), [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi), [Lilu](https://github.com/acidanthera/Lilu), [VirtualSMC](https://github.com/acidanthera/VirtualSMC), [CPUFriend](https://github.com/acidanthera/CPUFriend), [WhateverGreen](https://github.com/acidanthera/WhateverGreen), [AppleALC](https://github.com/acidanthera/AppleALC), [HibernationFixup](https://github.com/acidanthera/HibernationFixup), [NVMeFix](https://github.com/acidanthera/NVMeFix), [VoodooPS2](https://github.com/acidanthera/VoodooPS2), [gfxutil](https://github.com/acidanthera/gfxutil), [MaciASL](https://github.com/acidanthera/MaciASL), [SSDT-AWAC.dsl](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-AWAC.dsl), [SSDT-PLUG.dsl](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/Source/SSDT-PLUG.dsl), [SSDT-EC-USBX.dsl](https://github.com/acidanthera/OpenCorePkg/tree/master/Docs/AcpiSamples/Source/SSDT-EC-USBX.dsl), [SSDT-SBUS-MCHC](https://github.com/acidanthera/OpenCorePkg/tree/master/Docs/AcpiSamples/Source/SSDT-SBUS-MCHC.dsl), [SSDT-PNLFCFL.dsl](https://github.com/acidanthera/OpenCorePkg/tree/master/Docs/AcpiSamples/Source/SSDT-PNLFCFL.dsl)
+- Thanks to [Dortania](https://github.com/dortania) for providing [SSDT-DGPU-BUM.dsl (SSDT-NoHybGfx.dsl)](https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/decompiled/SSDT-NoHybGfx.dsl), [SSDT-DGPU-OPT.dsl (SSDT-dGPU-Off.dsl)](https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/decompiled/SSDT-dGPU-Off.dsl), [SSDT-GPRW.aml](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/SSDT-GPRW.aml), [GPRW to XPRW Patch (Patch-GPRW)](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/GPRW-Patch.plist), [SSDT-USB-FIXSHUTDOWN.dsl (FixShutdown-USB-SSDT.dsl)](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/FixShutdown-USB-SSDT.dsl), [FixShutdown-Patch.plist](https://github.com/dortania/OpenCore-Post-Install/blob/master/extra-files/FixShutdown-Patch.plist)
+- Thanks to [Headkaze](https://github.com/headkaze) for providing [Hackintool](https://github.com/headkaze/Hackintool)
+- Thanks to [CorpNewt](https://github.com/corpnewt) for providing [USBMap](https://github.com/corpnewt/USBMap), [gibMacOS](https://github.com/corpnewt/gibMacOS), [ProperTree](https://github.com/corpnewt/ProperTree), [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS), [MountEFI](https://github.com/corpnewt/MountEFI)
+- Thanks to [Fewtarius](https://github.com/fewtarius) for providing [CPUFriendFriend (CPUFriendDataProvider)](https://github.com/fewtarius/CPUFriendFriend) (fork of [Corpnewt's](https://github.com/corpnewt) [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend))
+- Thanks to [Sniki](https://github.com/Sniki) for  providing [OS-X-USB-Inject-All](https://github.com/Sniki/OS-X-USB-Inject-All) (fork of [RehabMan's](https://github.com/RehabMan) [OS-X-USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All))
+- Thanks to [VoodooI2C](https://github.com/VoodooI2C) for providing [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)
+- Thanks to [OpenIntelWireless](https://github.com/OpenIntelWireless) for providing [AirportItlwm](https://github.com/OpenIntelWireless/itlwm), [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware)
+- Thanks to [Daliansky](https://github.com/daliansky) for providing [SSDT-LGPA.dsl](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/main/ACPI/CML/SSDT-LGPA.dsl), [SSDT-TPD0](https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/main/ACPI/CML/SSDT-TPD0.dsl)
+- Thanks to [RehabMan](https://github.com/RehabMan) for providing [SSDT-PS2K (SSDT-Swap-LeftControlCapsLock.dsl)](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller/blob/master/SSDT-Swap-LeftControlCapsLock.dsl)
+- Thanks to [Mykola Grymalyuk](https://github.com/khronokernel) for providing [IORegistryExplorer](https://github.com/khronokernel/IORegistryClone)
+- Thanks to [tonymacx86.com](https://www.tonymacx86.com/) for providing a huge number of guides, supports snd discussions
+- Thanks to [Unified Extensible Firmware Interface Forum](https://uefi.org) for providing [ACPI 6.3 Manual](https://uefi.org/sites/default/files/resources/ACPI_6_3_May16.pdf)
+- Thanks to [Rasmus Lerdorf](https://github.com/rlerdorf) for [Sanity Checker](https://opencore.slowgeek.com/) ([Sanity Checker Repo](https://github.com/rlerdorf/OCSanity))
