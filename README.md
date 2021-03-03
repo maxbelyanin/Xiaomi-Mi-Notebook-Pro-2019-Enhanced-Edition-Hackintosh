@@ -31,7 +31,6 @@
         - [EFI/OC/config.plist -> PlatformInfo -> Generic](#efiocconfigplist---platforminfo---generic)
         - [EFI/OC/config.plist -> UEFI](#efiocconfigplist---uefi)
       - [EFI/OC/ACPI](#efiocacpi)
-      - [EFI/OC/Bootstrap](#efiocbootstrap)
       - [EFI/OC/Drivers](#efiocdrivers)
       - [EFI/OC/Kexts](#efiockexts)
   - [Step By Step Configuration (From Scratch)](#step-by-step-configuration-from-scratch)
@@ -104,7 +103,7 @@
 
 | Name | Version | Purpose | Comment
 | ---- | ------- | ------- | -------
-| BOOTx64.efi | 0.6.5 | Initial bootstrap loader | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg)
+| BOOTx64.efi | 0.6.7 | Initial bootstrap loader | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg)
 
 ### EFI/OC
 
@@ -262,6 +261,7 @@ TODO: !!!
 | LegacyCommpage          | NO *(Default)*  | Replaces the default 64-bit commpage bcopy implementation with one that does not require SSSE3, useful for legacy platforms.
 | PanicNoKextDump         | **YES**         | Prevent kernel from printing kext dump in the panic log preventing from observing panic details. Affects 10.13 and above
 | PowerTimeoutKernelPanic | **YES**         | Disables kernel panic on setPowerState timeout
+| SetApfsTrimTimeout      | -1  *(Default)* | Set trim timeout in microseconds for APFS filesystems on SSDs.
 | ThirdPartyDrives        | **YES**         | Apply vendor patches to IOAHCIBlockStorage.kext to enable native features for third-party drives, such as TRIM on SSDs or hibernation support on 10.15 and newer
 | XhciPortLimit           | [Fixing USB. System Preparation (SSDT-RHUB-Reset, USBInjectAll.kext)](#fixing-usb-system-preparation-ssdt-rhub-reset-usbinjectallkext) | Patch various kexts (AppleUSBXHCI.kext, AppleUSBXHCIPCI.kext, IOUSBHostFamily.kext) to remove USB port count limit of 15 ports
 
@@ -282,6 +282,8 @@ TODO: !!!
 | ConsoleAttributes | Number | 0  *(Default)*
 | HibernateMode | String | None  *(Default)* | Avoid hibernation (Recommended). We're gonna avoid the black magic that is S4 for this guide. [Fixing Sleep](#fixing-sleep-hibernationfixup-configplist)
 | HideAuxiliary | Boolean | False  *(Default)*
+| LauncherOption | String | Disabled  *(Default)*
+| LauncherPath | String | Default  *(Default)*
 | PickerAttributes | Number | 17  *(Default)*
 | PickerAudioAssist | Boolean | False  *(Default)*
 | PickerMode | String | Builtin  *(Default)*
@@ -338,12 +340,14 @@ TODO: !!!
 | UpdateNVRAM | YES *(Default)* | Update NVRAM fields related to platform information. These fields are read from Generic or PlatformNVRAM sections depending on Automatic value.
 | UpdateSMBIOS | YES *(Default)* | Update SMBIOS fields. These fields are read from Generic or SMBIOS sections depending on Automatic value.
 | UpdateSMBIOSMode | Create *(Default)* | Update SMBIOS fields approach. Create - Replace the tables with newly allocated EfiReservedMemoryType at AllocateMaxAddress without any fallbacks.
+| UseRawUuidEncoding | False *(Default)* | Use raw encoding for SMBIOS UUIDs.
 
 ##### EFI/OC/config.plist -> PlatformInfo -> Generic
 
 | Key | Value | Comments
 | --- | ----- | --------
 | AdviseWindows | False *(Default)* | Forces Windows support in FirmwareFeatures
+| MaxBIOSVersion | False *(Default)* | Sets BIOSVersion to 9999.999.999.999.999, recommended for legacy Macs when using Automatic
 | MLB | **[Generating SMBIOS](#generating-smbios)** |  Refer to SMBIOS BoardSerialNumber
 | ProcessorType | 0 *(Default)* | Refer to SMBIOS ProcessorType. *0 (Automatic)*
 | ROM | | Refer to 4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14:ROM
@@ -373,18 +377,12 @@ TODO: !!!
 | 12  | SSDT-PS2K | Y | [Fixing Keyboard](#fixing-keyboard-ssdt-lgpa-ssdt-ps2k-voodoops2controllerkext-voodoops2keyboardkext-configplist) | |
 | 13  | SSDT-TPD0 | Y | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | |
 
-#### EFI/OC/Bootstrap
-
-| Name | Version | Purpose | Comment
-| ---- | ------- | ------- | -------
-| Bootstrap.efi | 0.6.5 | Initial bootstrap loader | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg)
-
 #### EFI/OC/Drivers
 
 | Name | Version | Purpose | Comment
 | ---- | ------- | ------- | -------
-| OpenCanopy.efi | 0.6.5 | OpenCore plugin implementing graphical interface | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg)
-| OpenRuntime.efi | 0.6.5 | OpenCore plugin implementing OC_FIRMWARE_RUNTIME protocol | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg) | Must have
+| OpenCanopy.efi | 0.6.7 | OpenCore plugin implementing graphical interface | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg)
+| OpenRuntime.efi | 0.6.7 | OpenCore plugin implementing OC_FIRMWARE_RUNTIME protocol | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg) | Must have
 | HfsPlus.efi | Latest commit 192ed42 on Mar 1, 2020 | Needed for seeing HFS volumes | [Adding HFS driver (HfsPlus.efi)](#adding-hfs-driver-hfsplusefi)
 
 #### EFI/OC/Kexts
@@ -427,8 +425,6 @@ EFI
 │   └── BOOTx64.efi
 └── OC
     ├── ACPI
-    ├── Bootstrap
-    │   └── Bootstrap.efi
     ├── Drivers
     │   ├── OpenCanopy.efi
     │   └── OpenRuntime.efi
