@@ -1040,7 +1040,12 @@ Tools:
     Press [enter] to return to the menu...
     ```
 
-5. Add generated USBMap.kext to EFI/OC/Kext/USBMap.kext
+5. Cleanup
+
+   - Disable **USBInjectAll.kext**
+   - config.plist -> Kernel -> Quirks -> XhciPortLimit -> False
+
+6. Add generated USBMap.kext to EFI/OC/Kext/USBMap.kext
 
 Result USB Mapping:
 
