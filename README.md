@@ -389,7 +389,7 @@ TODO: !!!
 
 | #    | Name | Enable | Version | Purpose | Comment
 | :--: | ---- | ------ | ------- | ------- | -------
-| 01   | [Lilu](https://github.com/acidanthera/Lilu) | Y | 1.5.0 | [Adding a platform for arbitrary kext, library, and program patching](#adding-a-platform-for-arbitrary-kext-library-and-program-patching-lilukext) | Must have
+| 01   | [Lilu](https://github.com/acidanthera/Lilu) | Y | 1.5.1 | [Adding a platform for arbitrary kext, library, and program patching](#adding-a-platform-for-arbitrary-kext-library-and-program-patching-lilukext) | Must have
 | 02   | [VirtualSMC](https://github.com/acidanthera/VirtualSMC) | Y | 1.2.1 | [Adding SMC chip emulator](#adding-smc-chip-emulator-virtualsmckext) | Must have
 | 03   | [SMCBatteryManager](https://github.com/acidanthera/VirtualSMC) | Y | 1.2.1 | [Adding Hardware Monitoring](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext) | plugin for VirtualSMC.kext
 | 04   | [SMCProcessor](https://github.com/acidanthera/VirtualSMC) | Y | 1.2.1 | [Adding Hardware Monitoring](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext) | plugin for VirtualSMC.kext
