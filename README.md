@@ -390,10 +390,10 @@ TODO: !!!
 | #    | Name | Enable | Version | Purpose | Comment
 | :--: | ---- | ------ | ------- | ------- | -------
 | 01   | [Lilu](https://github.com/acidanthera/Lilu) | Y | 1.5.0 | [Adding a platform for arbitrary kext, library, and program patching](#adding-a-platform-for-arbitrary-kext-library-and-program-patching-lilukext) | Must have
-| 02   | [VirtualSMC](https://github.com/acidanthera/VirtualSMC) | Y | 1.1.9 | [Adding SMC chip emulator](#adding-smc-chip-emulator-virtualsmckext) | Must have
-| 03   | [SMCBatteryManager](https://github.com/acidanthera/VirtualSMC) | Y | 1.1.9 | [Adding Hardware Monitoring](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext) | plugin for VirtualSMC.kext
-| 04   | [SMCProcessor](https://github.com/acidanthera/VirtualSMC) | Y | 1.1.9 | [Adding Hardware Monitoring](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext) | plugin for VirtualSMC.kext
-| 05   | [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) | Y | 1.1.9 | [Adding Hardware Monitoring](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext) | plugin for VirtualSMC.kext
+| 02   | [VirtualSMC](https://github.com/acidanthera/VirtualSMC) | Y | 1.2.1 | [Adding SMC chip emulator](#adding-smc-chip-emulator-virtualsmckext) | Must have
+| 03   | [SMCBatteryManager](https://github.com/acidanthera/VirtualSMC) | Y | 1.2.1 | [Adding Hardware Monitoring](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext) | plugin for VirtualSMC.kext
+| 04   | [SMCProcessor](https://github.com/acidanthera/VirtualSMC) | Y | 1.2.1 | [Adding Hardware Monitoring](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext) | plugin for VirtualSMC.kext
+| 05   | [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) | Y | 1.2.1 | [Adding Hardware Monitoring](#adding-hardware-monitoring-smcbatterymanager-smcprocessorkext-smcsuperiokext) | plugin for VirtualSMC.kext
 | 06   | [CPUFriendDataProvider](https://github.com/fewtarius/CPUFriendFriend) | Y | Latest commit ae123c0 on Oct 23, 2020 | [Optimizing Power Management](#optimizing-power-management-ssdt-plug-cpufrienddataproviderkext-cpufriendkext) | additional features for CPUFriend.kext
 | 07   | [CPUFriend](https://github.com/acidanthera/CPUFriend) | Y | 1.2.3 | [Optimizing Power Management](#optimizing-power-management-ssdt-plug-cpufrienddataproviderkext-cpufriendkext)
 | 08   | [USBInjectAll](https://github.com/Sniki/OS-X-USB-Inject-All/releases) | `N` | 0.7.5 | [Fixing USB. System Preparation (SSDT-RHUB-Reset, USBInjectAll.kext)] | **For Tuning ONLY**
