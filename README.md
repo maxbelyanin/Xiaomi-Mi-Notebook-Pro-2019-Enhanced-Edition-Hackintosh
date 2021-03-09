@@ -1449,6 +1449,12 @@ TODO: !!!
 
 ### Fixing Sleep
 
+Refs:
+
+- [Improving Sleep on a Hackintosh (Wakeup, Freezes, Black Screens)](https://hackintosher.com/forums/thread/improving-sleep-on-a-hackintosh-wakeup-freezes-black-screens.486/)
+- [Fixing Sleep
+](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html#preparations)
+
 In macOS:
 
 Set:
