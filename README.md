@@ -71,6 +71,8 @@
     - [Fixing Wifi (AirportItlwm.kext)](#fixing-wifi-airportitlwmkext)
     - [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext)
     - [Battery Patching](#battery-patching)
+  - [Post-Install](#post-install)
+    - [Fixing Sleep](#fixing-sleep)
   - [Debug](#debug)
     - [Useful commands](#useful-commands)
   - [Refs](#refs)
@@ -1442,6 +1444,55 @@ TODO: !!!
 - [Battery Patching](https://dortania.github.io/OpenCore-Post-Install/laptop-specific/battery.html)
 - [Rehabman's how to patch DSDT for working battery status](https://www.tonymacx86.com/threads/guide-how-to-patch-dsdt-for-working-battery-status.116102/)
 - [Rehabman's Guide to Using Clover to "hotpatch" ACPI](https://www.tonymacx86.com/threads/guide-using-clover-to-hotpatch-acpi.200137/)
+
+## Post-Install
+
+### Fixing Sleep
+
+In macOS:
+
+Set:
+
+```zsh
+sudo pmset -a powernap 0
+sudo pmset -a standby 0 
+sudo pmset -a proximitywake 0
+sudo pmset -a tcpkeepalive 0 
+Warning: This option disables TCP Keep Alive mechanism when sytem is sleeping. This will result in some critical features like 'Find My Mac' not to function properly.
+```
+
+1. Disables autopoweroff: This is a form of hibernation
+2. Disables powernap: Used to periodically wake the machine for network, and updates(but not the display)
+3. Disables standby: Used as a time period between sleep and going into hibernation
+4. Disables wake from iPhone/Watch: Specifically when your iPhone or Apple Watch come near, the machine will wake
+5. Disables TCP Keep Alive mechanism to prevent wake ups every 2 hours
+
+Get:
+
+```zsh
+sudo pmset -g
+
+System-wide power settings:
+Currently in use:
+ standbydelaylow      10800
+ standby              0
+ womp                 0
+ halfdim              1
+ hibernatefile        /var/vm/sleepimage
+ proximitywake        0
+ powernap             0
+ gpuswitch            2
+ networkoversleep     0
+ disksleep            0
+ standbydelayhigh     86400
+ sleep                0
+ hibernatemode        3
+ ttyskeepawake        1
+ displaysleep         0
+ tcpkeepalive         0
+ highstandbythreshold 50
+ lidwake              1
+```
 
 ## Debug
 
