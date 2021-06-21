@@ -105,7 +105,7 @@
 
 | Name | Version | Purpose | Comment
 | ---- | ------- | ------- | -------
-| BOOTx64.efi | 0.6.7 | Initial bootstrap loader | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg)
+| BOOTx64.efi | 0.7.0 | Initial bootstrap loader | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg)
 
 ### EFI/OC
 
@@ -385,7 +385,7 @@ TODO: !!!
 | ---- | ------- | ------- | -------
 | OpenCanopy.efi | 0.6.7 | OpenCore plugin implementing graphical interface | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg)
 | OpenRuntime.efi | 0.6.7 | OpenCore plugin implementing OC_FIRMWARE_RUNTIME protocol | [Adding The Base OpenCore Files (OpenCorePkg)](#adding-the-base-opencore-files-opencorepkg) | Must have
-| HfsPlus.efi | Latest commit 192ed42 on Mar 1, 2020 | Needed for seeing HFS volumes | [Adding HFS driver (HfsPlus.efi)](#adding-hfs-driver-hfsplusefi)
+| HfsPlus.efi | Latest commit 95b7d4c on May 5, 2021 | Needed for seeing HFS volumes | [Adding HFS driver (HfsPlus.efi)](#adding-hfs-driver-hfsplusefi)
 
 #### EFI/OC/Kexts
 
