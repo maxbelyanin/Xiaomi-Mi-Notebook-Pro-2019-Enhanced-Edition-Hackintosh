@@ -412,8 +412,8 @@ TODO: !!!
 | 19   | [VoodooPS2Controller](https://github.com/acidanthera/VoodooPS2) | Y | 2.2.2 | [Fixing Keyboard](#fixing-keyboard-ssdt-lgpa-ssdt-ps2k-voodoops2controllerkext-voodoops2keyboardkext-configplist) | (from VoodooPS2 bundle)
 | 20   | [VoodooPS2Keyboard](https://github.com/acidanthera/VoodooPS2) | Y | 2.2.2 | [Fixing Keyboard](#fixing-keyboard-ssdt-lgpa-ssdt-ps2k-voodoops2controllerkext-voodoops2keyboardkext-configplist) | (plugin for VoodooPS2Controller from VoodooPS2 bundle)
 | 21   | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) | Y | 1.3.0 | [Fixing Wifi](#fixing-wifi-airportitlwmkext)
-| 22   | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.2 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext)
-| 23   | [IntelBluetoothInjector](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.2 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext). (plugin for IntelBluetoothFirmware.kext)
+| 22   | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.3 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext)
+| 23   | [IntelBluetoothInjector](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.3 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext). (plugin for IntelBluetoothFirmware.kext)
 
 ## Step By Step Configuration (From Scratch)
 
