@@ -403,7 +403,7 @@ TODO: !!!
 | 10   | [WhateverGreen](https://github.com/acidanthera/WhateverGreen) | Y | 1.4.8 | [Patching Intel iGPU](#patching-intel-igpu-whatevergreenkext-configplist)
 | 11   | [AppleALC](https://github.com/acidanthera/AppleALC) | Y | 1.5.8 | [Patching Audio](#patching-audio-applealckext-configplist)
 | 12   | [HibernationFixup](https://github.com/acidanthera/HibernationFixup) | Y | 1.3.9 | [Fixing Sleep](#fixing-sleep-hibernationfixup-configplist)
-| 13   | [NVMeFix](https://github.com/acidanthera/NVMeFix) | Y | 1.0.5 | [Fixing NVMe](#fixing-nvme-nvmefixkext)
+| 13   | [NVMeFix](https://github.com/acidanthera/NVMeFix) | Y | 1.0.8 | [Fixing NVMe](#fixing-nvme-nvmefixkext)
 | 14   | [VoodooI2CServices](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.5 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (plugin for VoodooI2C)
 | 15   | [VoodooGPIO](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.5 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext) | (plugin for VoodooI2C)
 | 16   | [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) | Y | 2.6.5 | [Fixing Trackpad](#fixing-trackpad-ssdt-tpd0-voodooi2cserviceskext-voodoogpiokext-voodooi2ckext-voodooi2chidkext-voodooinputkext)
