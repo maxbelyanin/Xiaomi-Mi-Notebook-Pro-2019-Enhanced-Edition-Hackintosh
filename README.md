@@ -414,6 +414,7 @@ TODO: !!!
 | 21   | [AirportItlwm](https://github.com/OpenIntelWireless/itlwm) | Y | 1.3.0 | [Fixing Wifi](#fixing-wifi-airportitlwmkext)
 | 22   | [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.3 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext)
 | 23   | [IntelBluetoothInjector](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) | Y | v1.1.3 | [Fixing Bluetooth (IntelBluetoothFirmware.kext, IntelBluetoothInjector.kext)](#fixing-bluetooth-intelbluetoothfirmwarekext-intelbluetoothinjectorkext). (plugin for IntelBluetoothFirmware.kext)
+| 24   | [ECEnabler](https://github.com/1Revenger1/ECEnabler) | Y | v1.0.1 | Fixes reading battery status on many devices (Allows reading EC fields over 8 bits long)
 
 ## Step By Step Configuration (From Scratch)
 
