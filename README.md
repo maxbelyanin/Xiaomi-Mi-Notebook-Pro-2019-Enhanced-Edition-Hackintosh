@@ -400,7 +400,7 @@ TODO: !!!
 | 07   | [CPUFriend](https://github.com/acidanthera/CPUFriend) | Y | 1.2.3 | [Optimizing Power Management](#optimizing-power-management-ssdt-plug-cpufrienddataproviderkext-cpufriendkext)
 | 08   | [USBInjectAll](https://github.com/Sniki/OS-X-USB-Inject-All/releases) | `N` | 0.7.5 | [Fixing USB. System Preparation (SSDT-RHUB-Reset, USBInjectAll.kext)] | **For Tuning ONLY**
 | 09   | USBMap | Y | 0.0.1 | [Fixing USB. USB Mapping](#fixing-usb-usb-mapping-usbmapkext)
-| 10   | [WhateverGreen](https://github.com/acidanthera/WhateverGreen) | Y | 1.4.8 | [Patching Intel iGPU](#patching-intel-igpu-whatevergreenkext-configplist)
+| 10   | [WhateverGreen](https://github.com/acidanthera/WhateverGreen) | Y | 1.5.0 | [Patching Intel iGPU](#patching-intel-igpu-whatevergreenkext-configplist)
 | 11   | [AppleALC](https://github.com/acidanthera/AppleALC) | Y | 1.5.8 | [Patching Audio](#patching-audio-applealckext-configplist)
 | 12   | [HibernationFixup](https://github.com/acidanthera/HibernationFixup) | Y | 1.3.9 | [Fixing Sleep](#fixing-sleep-hibernationfixup-configplist)
 | 13   | [NVMeFix](https://github.com/acidanthera/NVMeFix) | Y | 1.0.8 | [Fixing NVMe](#fixing-nvme-nvmefixkext)
