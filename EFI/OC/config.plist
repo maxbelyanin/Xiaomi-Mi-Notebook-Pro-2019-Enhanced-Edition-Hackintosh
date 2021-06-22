@@ -34,7 +34,7 @@
 				<key>Comment</key>
 				<string>Disable discrete graphics card. Bumblebee Method</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-DGPU-BUM.aml</string>
 			</dict>
@@ -822,7 +822,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>Arch</key>
